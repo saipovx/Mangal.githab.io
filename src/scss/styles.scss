@@ -1,0 +1,61 @@
+// styles.scss
+$primary-color: #007bff;
+$secondary-color: #333;
+$bg-color: #000;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #141414 !important;
+}
+
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+
+.cart-link {
+  color: $primary-color;
+  text-decoration: underline;
+}
+
+.section__home{
+  margin-top: 120px;
+}
+
+
+.filter-buttons {
+  margin-bottom: 20px;
+
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  button {
+    padding: 10px 15px;
+    border: none;
+    outline: none ;
+    font-size: 15px;
+    background-color: #eee;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+
+    @media (max-width: 550px) {
+       font-size: 15px;
+       padding: 5px 10px;
+  }
+
+    &.active {
+      background-color: #c02727;
+      color: white;
+    }
+  }
+}
+

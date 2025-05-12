@@ -1,0 +1,53 @@
+.gallery {
+    position: relative;
+  }
+
+  .title{
+
+    @media (max-width: 700px) {
+      font-size: 24px;
+    }
+  }
+  
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+    gap: 16px; /* отступы между изображениями */
+
+    @media (max-width: 700px) {
+      grid-template-columns: repeat(1, 1fr); /* 2 колонки */
+      
+    }
+
+  }
+  
+  .image-item {
+    width: 100%;
+  }
+  
+  .gallery-image {
+    width: 100%;
+    height: auto; /* сохраняет пропорции изображений */
+    margin-top: 20px;
+    border-radius: 20px;
+  }
+  
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .nav-button.left {
+    left: 10px;
+  }
+  
+  .nav-button.right {
+    right: 10px;
+  }
+  

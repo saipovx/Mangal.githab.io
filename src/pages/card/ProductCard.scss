@@ -1,0 +1,133 @@
+$bg-color: #c02727;
+
+
+.cart-items{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+    gap: 20px;
+}
+
+.product-card{
+    flex: 0 1 21%;
+    max-width: 100%;
+    width: 100%;
+    min-height: 530px;
+    max-width: 650px;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0;
+
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin-bottom: 15px;
+    z-index: 1 !important;
+    position: relative;
+
+    @media (max-width: 1430px) {
+        flex: 0 1 27%;
+    }
+
+    @media (max-width: 880px) {
+        flex: 0 1 43%;
+    }
+
+    @media (max-width: 740px) {
+        flex: 100%;
+    }
+
+    @media (max-width: 550px) {
+        padding: 15px;
+   }
+
+    &__image{
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0px 20px 60px 10px #0303037a;
+        margin-bottom: 10px !important;
+        
+    }
+
+    
+    &__title{
+        font-family: 20px;
+        font-weight: 800;
+        // margin-bottom: 10px;
+        color: #1d1d1d;
+        margin: 0 !important;
+    }
+
+    &__subtitle{
+        font-size: 14px;
+        font-weight: 400;
+        color: #1d1d1d;
+        margin: 0px !important;
+    }
+
+    &__select{
+
+        padding: 10px;
+        background: $bg-color;
+        color: #fff;
+        outline: none;
+        width: 100%;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all ease .3s;
+        font-size: 12px;
+        font-weight: 600;
+        border: none;
+        outline: none;
+        display: flex;
+        justify-content: center;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px !important;
+
+    }
+
+    &__btn{
+        
+      
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      
+
+        padding: 10px 0px;
+        background: $bg-color;
+        color: #fff;
+        outline: none;
+        width: 100%;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all ease .3s;
+        font-size: 16px;
+        font-weight: 600;
+
+        &.in-cart {
+            background-color: #1d6d3c; // тёмно-зелёный
+            color: #fff;
+            cursor: default;
+        }
+
+
+        &:hover{
+            background: #f02d2d;
+        }
+        
+    }
+    
+}
+
