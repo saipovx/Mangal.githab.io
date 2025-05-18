@@ -16,7 +16,7 @@ $white: #fff;
   gap: 20px;
   z-index: 1001 !important;
 
-  max-width: 700px;
+  max-width: 1430px;
   margin: 0 auto;
   box-shadow: 0px 0px 100px 5px #020202;
 
@@ -73,6 +73,7 @@ $white: #fff;
   text-transform: uppercase;
   border-bottom: 1px solid #00000000;
   padding: 5px 0px;
+  max-width: max-content;
   font-weight: 700;
 
   @media (max-width: 768px) {
@@ -138,6 +139,8 @@ $white: #fff;
 
     & a:hover {
       border-bottom: none !important;
+  max-width: max-content;
+      
     }
 
 
@@ -147,9 +150,11 @@ $white: #fff;
     }
 
     a {
-      padding: 10px 20px;
+      padding: 10px 0px 10px 20px;
       width: 100%;
       color: $white;
+  max-width: max-content;
+
     }
   }
 
