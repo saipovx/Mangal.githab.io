@@ -100,43 +100,64 @@ const images = [
 ];
 
 export default function About() {
-  const [index, setIndex] = useState(0);
+  // Читаем состояние из localStorage или инициализируем заново
+  const savedLoaded = JSON.parse(localStorage.getItem("loadedImages") || "[]");
+  const [loadedImages, setLoadedImages] = useState(
+    savedLoaded.length === images.length ? savedLoaded : Array(images.length).fill(false)
+  );
 
-  const prevImage = () => {
-    setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  const savedIndex = parseInt(localStorage.getItem("currentIndex") || "0", 10);
+  const [currentIndex, setCurrentIndex] = useState(savedIndex < images.length ? savedIndex : 0);
+
+  const handleImageLoad = (index) => {
+    setLoadedImages((prev) => {
+      const updated = [...prev];
+      updated[index] = true;
+
+      // Сохраняем в localStorage
+      localStorage.setItem("loadedImages", JSON.stringify(updated));
+
+      return updated;
+    });
+
+    setCurrentIndex((prev) => {
+      const next = prev + 1 < images.length ? prev + 1 : prev;
+      localStorage.setItem("currentIndex", next.toString());
+      return next;
+    });
   };
 
-  const nextImage = () => {
-    setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-  };
+  // При размонтировании или загрузке страницы можно обновить localStorage,
+  // но сейчас он обновляется сразу при загрузке картинки, так что не обязателен useEffect.
 
   return (
-
     <div className="container">
-
       <section className="Basket">
-
-    <h1 className="title" >Электронное меню</h1>
-
-        
-    <div className="gallery">
-      <div className="image-grid">
-        {images.map((image, i) => (
-          <div key={i} className="image-item">
-            <img
-              src={image}
-              alt={`menu ${i + 1}`}
-              className="gallery-image"
-               loading="lazy"
-            />
+        <h1 className="title">Электронное меню</h1>
+        <div className="gallery">
+          <div className="image-grid">
+            {images.map((image, i) => {
+              if (loadedImages[i] || i === currentIndex) {
+                return (
+                  <div key={i} className="image-item">
+                    {!loadedImages[i] && <p>Загрузка, подождите...</p>}
+                    <img
+                      src={image}
+                      alt={`menu ${i + 1}`}
+                      className="gallery-image"
+                      loading="lazy"
+                      style={{ display: loadedImages[i] ? "block" : "none" }}
+                      onLoad={() => handleImageLoad(i)}
+                    />
+                  </div>
+                );
+              }
+              return null;
+            })}
           </div>
-        ))}
-      </div>
-    </div>
-
+        </div>
       </section>
-
-
     </div>
   );
 }
+

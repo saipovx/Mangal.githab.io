@@ -167,7 +167,7 @@ $white: #fff;
 
 
 .no-scroll {
-  overflow: hidden;
-  height: 100vh;
+  overflow: hidden !important;
+  height: 100vh !important;
 }
 
