@@ -227,6 +227,14 @@ ${cartItems
               {formErrors.paymentMethod && <p className="error-text">{formErrors.paymentMethod}</p>}
             </label>
 
+             {formData.paymentMethod === "Переводом" && (
+
+
+              <p className="delivery-form__mbank">MBANK +996 554 00 00 06</p> 
+
+
+              )}
+
             {/* 👇 upload block */}
             {formData.paymentMethod === "Переводом" && (
               <label className="delivery-form__label">
@@ -237,10 +245,15 @@ ${cartItems
             )}
 
             {/* comments */}
+
+            {formData.paymentMethod === "Переводом" && (
+
             <label className="delivery-form__label">
               От кого отправлен перевод:
               <textarea name="comments" value={formData.comments} onChange={handleFormChange} />
             </label>
+            
+            )}
 
             {/* submit */}
             {cartItems.length > 0 && (
